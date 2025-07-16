@@ -1,0 +1,72 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load tailwind_tags %}
+{% block 'body' %}
+
+<div class="bg-gray-100 flex justify-center items-center h-screen text-gray-800"> 
+
+  <!-- Left: Image -->
+  <div class="w-1/2 h-screen hidden lg:block">
+    <img src="{% static 'image/AiRobot.gif' %}"
+         alt="Placeholder Image"
+         class="object-cover w-full h-full">
+  </div>
+
+  <!-- Right: Login Form -->
+  <div class="lg:p-36 md:p-52 sm:p-20 p-8 w-full lg:w-1/2">
+    <h1 class="text-5xl font-extrabold text-blue-600 text-center my-10">
+  ATS Resume Builder
+</h1>
+
+    <h1 class="text-2xl font-semibold mb-4">Register</h1>
+  <form action="" method="POST" novalidate>
+  {% csrf_token %}
+
+  {% for field in register_forms %}
+    <div class="mb-5">
+      <!-- Label -->
+      <label for="{{ field.id_for_label }}" class="block mb-1 text-gray-700 font-medium">
+        {{ field.label }}
+      </label>
+
+      <!-- Input Field -->
+      {{ field }}
+
+      <!-- Help Text -->
+      {% if field.help_text %}
+        <p class="text-sm text-gray-500 mt-1">{{ field.help_text|safe }}</p>
+      {% endif %}
+
+      <!-- Error Message -->
+      {% for error in field.errors %}
+        <p class="text-sm text-red-600 mt-1">{{ error }}</p>
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+  <!-- Remember Me -->
+  <div class="mb-4 flex items-center">
+    <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-blue-500">
+    <label for="remember" class="ml-2 text-gray-600">Remember Me</label>
+  </div>
+
+  <!-- Forgot Password -->
+  <div class="mb-6 text-blue-500">
+    <a href="#" class="hover:underline">Forgot Password?</a>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full">
+    Register
+  </button>
+</form>
+
+    <!-- Sign up Link -->
+    <div class="mt-6 text-blue-500 text-center">
+      <a href="{% url 'login' %}" class="hover:underline">Login Here</a>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
