@@ -1,18 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="transition-colors duration-300">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard | ATS Resume Builder</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+
+    // Theme load
+    if (localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Toggle theme
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-100 font-sans leading-relaxed tracking-wide">
+
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-gray-100 font-sans leading-relaxed tracking-wide">
 
   <!-- Navbar -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-gray-800">ATS Resume Builder</h1>
+  <header class="bg-white dark:bg-gray-800 shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-gray-800 dark:text-white">ATS Resume Builder</h1>
     <div class="flex items-center space-x-4">
-      <span class="text-gray-600">Welcome, JohnDoe</span>
+      <span class="text-gray-600 dark:text-gray-300">Welcome, JohnDoe</span>
+      <button onclick="toggleTheme()" class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-1 rounded text-sm">
+        🌗 Toggle Theme
+      </button>
       <a href="{% url 'logout' %}" class="text-red-500 hover:underline">Logout</a>
     </div>
   </header>
@@ -21,12 +50,12 @@
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 max-w-7xl mx-auto">
 
     <!-- Profile Card -->
-    <div class="lg:col-span-1 bg-white rounded-xl shadow p-6">
+    <div class="lg:col-span-1 bg-white dark:bg-gray-800 rounded-xl shadow p-6">
       <div class="flex items-center space-x-4">
         <img src="https://i.pravatar.cc/100?u=john@example.com" alt="Profile" class="w-16 h-16 rounded-full border-2 border-indigo-500" />
         <div>
-          <h2 class="text-lg font-semibold text-gray-800">John Doe</h2>
-          <p class="text-sm text-gray-500">john@example.com</p>
+          <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Mr Mike</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-300">midhunnk2022@gmail.com</p>
         </div>
       </div>
       <div class="mt-4">
@@ -38,10 +67,10 @@
     <div class="lg:col-span-2 space-y-6">
 
       <!-- Action Buttons -->
-      <div class="bg-white rounded-xl shadow p-6 flex justify-between items-center">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 flex justify-between items-center">
         <div>
-          <h2 class="text-xl font-semibold text-gray-800">Manage Your Resumes</h2>
-          <p class="text-sm text-gray-500">Create, edit or export your resumes below</p>
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Manage Your Resumes</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-300">Create, edit or export your resumes below</p>
         </div>
         <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">
           ➕ New Resume
@@ -50,32 +79,32 @@
 
       <!-- Resume Cards -->
       <div class="grid md:grid-cols-2 gap-4">
-        <div class="bg-white shadow rounded-xl p-4">
-          <h3 class="text-lg font-bold text-gray-800">Frontend Developer Resume</h3>
-          <p class="text-sm text-gray-500 mb-2">Last updated: July 15, 2025</p>
-          <div class="flex justify-between mt-3 text-sm text-gray-600 space-x-2">
-            <a href="#" class="hover:text-indigo-600">✏️ Edit</a>
-            <a href="#" class="hover:text-blue-600">👁️ View</a>
-            <a href="#" class="hover:text-green-600">📄 Export</a>
+        <div class="bg-white dark:bg-gray-800 shadow rounded-xl p-4">
+          <h3 class="text-lg font-bold text-gray-800 dark:text-white">Frontend Developer Resume</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-300 mb-2">Last updated: July 15, 2025</p>
+          <div class="flex justify-between mt-3 text-sm text-gray-600 dark:text-gray-300 space-x-2">
+            <a href="#" class="hover:text-indigo-500">✏️ Edit</a>
+            <a href="#" class="hover:text-blue-500">👁️ View</a>
+            <a href="#" class="hover:text-green-500">📄 Export</a>
             <a href="#" class="hover:text-red-500">🗑️ Delete</a>
           </div>
         </div>
 
-        <div class="bg-white shadow rounded-xl p-4">
-          <h3 class="text-lg font-bold text-gray-800">Full Stack Resume</h3>
-          <p class="text-sm text-gray-500 mb-2">Last updated: July 10, 2025</p>
-          <div class="flex justify-between mt-3 text-sm text-gray-600 space-x-2">
-            <a href="#" class="hover:text-indigo-600">✏️ Edit</a>
-            <a href="#" class="hover:text-blue-600">👁️ View</a>
-            <a href="#" class="hover:text-green-600">📄 Export</a>
+        <div class="bg-white dark:bg-gray-800 shadow rounded-xl p-4">
+          <h3 class="text-lg font-bold text-gray-800 dark:text-white">Full Stack Resume</h3>
+          <p class="text-sm text-gray-500 dark:text-gray-300 mb-2">Last updated: July 10, 2025</p>
+          <div class="flex justify-between mt-3 text-sm text-gray-600 dark:text-gray-300 space-x-2">
+            <a href="#" class="hover:text-indigo-500">✏️ Edit</a>
+            <a href="#" class="hover:text-blue-500">👁️ View</a>
+            <a href="#" class="hover:text-green-500">📄 Export</a>
             <a href="#" class="hover:text-red-500">🗑️ Delete</a>
           </div>
         </div>
       </div>
 
       <!-- AI Tools -->
-      <div class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-lg font-semibold text-gray-800 mb-4">💡 AI Tools</h2>
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
+        <h2 class="text-lg font-semibold text-gray-800 dark:text-white mb-4">💡 AI Tools</h2>
         <div class="flex flex-wrap gap-4">
           <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">✨ Generate Summary</a>
           <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">🧠 Suggest Skills</a>
@@ -83,9 +112,9 @@
       </div>
 
       <!-- Tips -->
-      <div class="bg-white rounded-xl shadow p-6">
-        <h2 class="text-lg font-semibold text-gray-800 mb-2">📌 Resume Tips</h2>
-        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6">
+        <h2 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">📌 Resume Tips</h2>
+        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-300 space-y-1">
           <li>Keep it clean, use consistent formatting.</li>
           <li>Focus on achievements, not just duties.</li>
           <li>Use relevant keywords for ATS parsing.</li>
