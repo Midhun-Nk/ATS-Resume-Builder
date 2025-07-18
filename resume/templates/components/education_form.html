@@ -16,7 +16,10 @@
 
   <div class="space-y-6 mt-6">
   {% for education in education_instance %}
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
+   <div
+  class="education-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
+  onclick="populateEducationForm(`{{ education.education }}`, `{{ education.mark }}`, `{{ education.date }}`)">
+
       <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
         {{ education.education }}
       </h2>
@@ -29,3 +32,18 @@
     </div>
   {% endfor %}
 </div>
+<script>
+  function populateEducationForm(education, mark, date) {
+    document.querySelector('[name="education"]').value = education;
+    document.querySelector('[name="mark"]').value = mark;
+    document.querySelector('[name="date"]').value = date;
+
+    // Remove highlight from all education cards
+    document.querySelectorAll('.education-card').forEach(card => {
+      card.classList.remove('ring-2', 'ring-blue-400', 'shadow-lg');
+    });
+
+    // Add highlight to the clicked education card
+    event.currentTarget.classList.add('ring-2', 'ring-blue-400', 'shadow-lg');
+  }
+</script>

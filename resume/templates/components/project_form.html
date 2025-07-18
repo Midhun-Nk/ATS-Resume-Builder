@@ -33,7 +33,10 @@
     
   <div class="space-y-6 mt-6">
   {% for project in project_instance %}
-    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
+   <div
+  class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
+  onclick="populateProjectForm(`{{ project.project }}`, `{{ project.github }}`, `{{ project.description1 }}`, `{{ project.description2 }}`, `{{ project.startdate }}`, `{{ project.enddate }}`)">
+
       <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
         {{ project.project }}
       </h2>
@@ -49,3 +52,21 @@
     </div>
   {% endfor %}
 </div>
+<script>
+  function populateProjectForm(project, github, description1, description2, startdate, enddate) {
+    document.querySelector('[name="project"]').value = project;
+    document.querySelector('[name="github"]').value = github;
+    document.querySelector('[name="description1"]').value = description1;
+    document.querySelector('[name="description2"]').value = description2;
+    document.querySelector('[name="startdate"]').value = startdate;
+    document.querySelector('[name="enddate"]').value = enddate;
+
+    // Remove highlight from all project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.classList.remove('ring-2', 'ring-blue-400', 'shadow-lg');
+    });
+
+    // Add highlight to the clicked project card
+    event.currentTarget.classList.add('ring-2', 'ring-blue-400', 'shadow-lg');
+  }
+</script>
