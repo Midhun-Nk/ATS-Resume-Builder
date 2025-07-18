@@ -10,20 +10,24 @@ def create_resume(request):
     # Initialize empty forms (GET method)
 
     profile_form = ProfileForm(instance=profile)
-    education_instance = profile.educations.first()
-    education_form = EducationForm(instance=education_instance)
+    education_instance = profile.educations.all()
+    education_form = EducationForm(instance=education_instance.first())
 
-    experience_instance = profile.experiences.first()
-    experience_form = ExperienceForm(instance=experience_instance)
+    experience_instance = profile.experiences.all()
+    for exp in experience_instance:
+       print(exp.experience)
+    experience_form = ExperienceForm(instance=experience_instance.first())
 
-    certificate_instance = profile.certificates.first()
-    certificate_form = CertificateForm(instance=certificate_instance)
 
-    skill_instance = profile.skills.first()
-    skill_form = SkillForm(instance=skill_instance)
+    certificate_instance = profile.certificates.all()
+    
+    certificate_form = CertificateForm(instance=certificate_instance.first())
 
-    project_instance = profile.projects.first()
-    project_form = ProjectForm(instance=project_instance)
+    skill_instance = profile.skills.all()
+    skill_form = SkillForm(instance=skill_instance.first())
+
+    project_instance = profile.projects.all()
+    project_form = ProjectForm(instance=project_instance.first())
 
 
     if request.method == 'POST':
@@ -68,5 +72,10 @@ def create_resume(request):
         'skill_form': skill_form,
         'project_form': project_form,
         'experience_form': experience_form,
+        'experience_instance':experience_instance,
+        'education_instance':education_instance,
+        'project_instance':project_instance,
+        'skill_instance':skill_instance,
+        'certificate_instance':certificate_instance,
     }
     return render(request, 'views/createnew.html', context)

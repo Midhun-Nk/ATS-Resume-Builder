@@ -13,3 +13,19 @@
         {{ certificate_form.enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
+
+  <div class="space-y-6 mt-6">
+  {% for certificate in certificate_instance %}
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        {{ certificate.certificate }}
+      </h2>
+      
+    
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.startdate }}</span>
+        <span>➡️ <strong>To:</strong> {{ certificate.enddate }}</span>
+      </div>
+    </div>
+  {% endfor %}
+</div>

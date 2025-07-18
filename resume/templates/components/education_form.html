@@ -13,3 +13,19 @@
         {{ education_form.date|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
+
+  <div class="space-y-6 mt-6">
+  {% for education in education_instance %}
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        {{ education.education }}
+      </h2>
+
+      <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
+        <li>{{ education.mark }}</li>
+        <li>{{ education.date }}</li>
+      </ul>
+
+    </div>
+  {% endfor %}
+</div>

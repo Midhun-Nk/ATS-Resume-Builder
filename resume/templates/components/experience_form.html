@@ -27,4 +27,26 @@
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
         {{ experience_form.enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
+
     </div>
+
+  <div class="space-y-6 mt-6">
+  {% for exp in experience_instance %}
+    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700">
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        {{ exp.experience }}
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-1">
+        <span class="font-medium text-gray-700 dark:text-gray-200">Summary:</span> {{ exp.summary }}
+      </p>
+      <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
+        <li>{{ exp.description1 }}</li>
+        <li>{{ exp.description2 }}</li>
+      </ul>
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <span class="mr-2">📅 <strong>From:</strong> {{ exp.startdate }}</span>
+        <span>➡️ <strong>To:</strong> {{ exp.enddate }}</span>
+      </div>
+    </div>
+  {% endfor %}
+</div>
