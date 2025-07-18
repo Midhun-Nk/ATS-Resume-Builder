@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        * { font-family: Arial, sans-serif; line-height: 1.4; margin: 0; padding: 0; }
+        body { padding: 30px; font-size: 12px; color: #222; }
+        h1 { font-size: 24px; font-weight: bold; margin-bottom: 5px; }
+        h2 { font-size: 16px; margin-top: 20px; margin-bottom: 5px; border-bottom: 1px solid #ccc; }
+        p, li { font-size: 12px; margin-bottom: 5px; }
+        ul { padding-left: 20px; }
+        .section { margin-top: 10px; }
+        .contact, .links { margin-bottom: 10px; }
+        .title { font-weight: bold; margin-top: 5px; }
+        a { color: #1a0dab; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <h1>{{ profile.name }}</h1>
+    <div class="contact">
+        <p>{{ profile.location }} | {{ profile.email }} | {{ profile.phone_number }}</p>
+        <p><a href="{{ profile.linkedin }}">{{ profile.linkedin }}</a> | <a href="{{ profile.github }}">{{ profile.github }}</a></p>
+    </div>
+
+    <h2>Summary</h2>
+    <p>{{ profile.summary }}</p>
+
+    <h2>Education</h2>
+    {% for edu in educations %}
+        <p class="title">{{ edu.education }}</p>
+        <p>{{ edu.mark }}</p>
+    {% endfor %}
+
+    <h2>Experience</h2>
+    {% for exp in experiences %}
+        <p class="title">{{ exp.experience }}</p>
+        <ul>
+            <li>{{ exp.summary }}</li>
+            <li>{{ exp.description1 }}</li>
+            <li>{{ exp.description2 }}</li>
+        </ul>
+        <p>{{ exp.startdate }} - {{ exp.enddate }}</p>
+    {% endfor %}
+
+    <h2>Certificates</h2>
+    <ul>
+        {% for cert in certificates %}
+            <li>{{ cert.certificate }} ({{ cert.startdate }} - {{ cert.enddate }})</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Projects</h2>
+    {% for proj in projects %}
+        <p class="title">{{ proj.project }} - <a href="{{ proj.github }}">{{ proj.github }}</a></p>
+        <ul>
+            <li>{{ proj.description1 }}</li>
+            <li>{{ proj.description2 }}</li>
+        </ul>
+        <p>{{ proj.startdate }} - {{ proj.enddate }}</p>
+    {% endfor %}
+
+    <h2>Skills</h2>
+    <p><strong>Languages:</strong> {{ skills.languages }}</p>
+    <p><strong>Frameworks:</strong> {{ skills.framework }}</p>
+    <p><strong>Tools:</strong> {{ skills.tools }}</p>
+    <p><strong>Soft Skills:</strong> {{ skills.softskills }}</p>
+    <p><strong>Linguistics:</strong> {{ skills.linguistic }}</p>
+
+</body>
+</html>

@@ -1,220 +1,107 @@
+{% extends "base/base.html" %}
 {% load widget_tweaks %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Create Profile</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 dark:bg-gray-900 dark:text-gray-100 font-sans leading-relaxed tracking-wide">
- 
-  <form method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-4xl mx-auto">
-    {% csrf_token %}
-        <h1 class="text-2xl font-semibold text-gray-800 mb-4">Personal</h1>
 
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
-        {{ profile_form.name|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
+{% block 'body' %}
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-gray-100 font-sans leading-relaxed tracking-wide min-h-screen">
 
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Profile Image</label>
-        {{ profile_form.image|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
+  <!-- Navbar -->
+  <header class="bg-white dark:bg-gray-800 shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-gray-800 dark:text-white">ATS Resume Builder</h1>
+    <div class="flex items-center space-x-4">
+      <span class="text-gray-600 dark:text-gray-300">Welcome, {{ request.user.username }}</span>
+      <button onclick="toggleTheme()" class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-1 rounded text-sm">🌗 Toggle Theme</button>
+      <a href="{% url 'logout' %}" class="text-red-500 hover:underline">Logout</a>
     </div>
+  </header>
 
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Email</label>
-        {{ profile_form.email|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
+  <!-- Multi-step Form -->
+  <div class="max-w-3xl mx-auto mt-8 bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
+    <form method="POST" enctype="multipart/form-data" class="p-6">
+      {% csrf_token %}
 
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Phone Number</label>
-        {{ profile_form.phone_number|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
+      <div id="form-steps">
+        <!-- Step 1: Personal -->
+        <section class="step">
+          <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Personal</h2>
+          {% include 'components/personal_form.html' %}
+        </section>
 
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">GitHub</label>
-        {{ profile_form.github|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
+        <!-- Step 2: Experience -->
+        <section class="step hidden">
+          <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Experience</h2>
+          {% include 'components/experience_form.html' %}
+        </section>
 
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">LinkedIn</label>
-        {{ profile_form.linkedin|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-    <h1 class="text-2xl font-semibold text-gray-800 mb-4">Experience</h1>
+        <!-- Step 3: Education -->
+        <section class="step hidden">
+          <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Education</h2>
+          {% include 'components/education_form.html' %}
+        </section>
 
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
-        {{ experience_form.experience|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
+        <!-- Step 4: Certificate -->
+        <section class="step hidden">
+          <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Certificate</h2>
+          {% include 'components/certificate_form.html' %}
+        </section>
 
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Summary</label>
-        {{ experience_form.summary|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
- <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description1</label>
-        {{ experience_form.description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
+        <!-- Step 5: Project -->
+        <section class="step hidden">
+          <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Project</h2>
+          {% include 'components/project_form.html' %}
+        </section>
 
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description2</label>
-        {{ experience_form.description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
- <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ experience_form.startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        <!-- Step 6: Skills -->
+        <section class="step hidden">
+          <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Skills</h2>
+          {% include 'components/skills_form.html' %}
+        </section>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between mt-8">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded hidden">Previous</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">Next</button>
+        </div>
       </div>
 
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ experience_form.enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-
-
-
-   <h1 class="text-2xl font-semibold text-gray-800 mb-4">Education</h1>
-
-    
- <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Education</label>
-        {{ education_form.education|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      <!-- Final Submission Buttons -->
+      <div id="final-actions" class="hidden mt-6 flex justify-between">
+        <a href="{% url 'generate_pdf' %}" target="_blank" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded">📄 View PDF</a>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">Save Profile</button>
       </div>
 
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Mark</label>
-        {{ education_form.mark|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
- <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ experience_form.startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ experience_form.enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-    
-    <h1 class="text-2xl font-semibold text-gray-800 mb-4">Certificate</h1>
-
-    
- <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Education</label>
-        {{ certificate_form.certificate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-
-   <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ experience_form.startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ experience_form.enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-    </div>
-
-       <h1 class="text-2xl font-semibold text-gray-800 mb-4">Project</h1>
-
-    
- <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Project</label>
-        {{ project_form.project|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Github</label>
-        {{ project_form.github|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-     <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description1</label>
-        {{ project_form.description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description2</label>
-        {{ project_form.description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ experience_form.startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ experience_form.enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-
-      
-       <h1 class="text-2xl font-semibold text-gray-800 mb-4">Skills</h1>
-
-    
- <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Languages</label>
-        {{ skill_form.languages|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Framework</label>
-        {{ skill_form.framework|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-    
- <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tools</label>
-        {{ skill_form.tools|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-
-      <div class="md:w-1/2 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Linguistic</label>
-        {{ skill_form.linguistic|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-    </div>
-    {% if errors %}
-  <div class="text-red-500 bg-red-100 p-4 rounded mt-4">
-    <h3 class="font-semibold mb-2">Form Errors:</h3>
-    <ul>
-      {% for err in errors %}
-        <li><pre>{{ err }}</pre></li>
-      {% endfor %}
-    </ul>
+    </form>
   </div>
-  
-{% endif %}
 
-    <div class="flex justify-end mt-4">
-      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded">
-        Save Profile
-      </button>
-    </div>
-  </form>
+  <!-- Script for Step Navigation -->
+  <script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll('.step');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const finalActions = document.getElementById('final-actions');
+
+    function showStep(n) {
+      steps.forEach((step, i) => {
+        step.classList.toggle('hidden', i !== n);
+      });
+
+      prevBtn.classList.toggle('hidden', n === 0);
+      nextBtn.innerText = n === steps.length - 1 ? 'Finish' : 'Next';
+      finalActions.classList.toggle('hidden', n !== steps.length - 1);
+    }
+
+    function nextPrev(n) {
+      if (n === 1 && currentStep < steps.length - 1) {
+        currentStep++;
+      } else if (n === -1 && currentStep > 0) {
+        currentStep--;
+      }
+      showStep(currentStep);
+    }
+
+    // Initial render
+    showStep(currentStep);
+  </script>
 
 </body>
-</html>
+{% endblock %}

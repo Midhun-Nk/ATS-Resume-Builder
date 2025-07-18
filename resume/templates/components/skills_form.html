@@ -1,0 +1,25 @@
+{% load widget_tweaks %}
+
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Languages</label>
+        {{ skill_form.languages|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Framework</label>
+        {{ skill_form.framework|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Tools</label>
+        {{ skill_form.tools|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+    </div>
+
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Linguistic</label>
+        {{ skill_form.linguistic|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3"><!-- Empty --></div>
+      <div class="md:w-1/3 px-3"><!-- Empty --></div>
+    </div>

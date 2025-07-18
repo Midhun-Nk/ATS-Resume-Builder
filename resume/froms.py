@@ -18,7 +18,7 @@ class ExperienceForm(forms.ModelForm):
 class EducationForm(forms.ModelForm):
     class Meta:
         model = EducationModel
-        fields = ['education', 'mark', 'startdate','enddate',]
+        fields = ['education', 'mark', 'date',]
 
 class CertificateForm(forms.ModelForm):
     class Meta:

@@ -8,8 +8,8 @@ class EducationModel(models.Model):
     profile = models.ForeignKey(ProfileModel, on_delete=models.CASCADE, related_name="educations")
     education = models.CharField(max_length=50, blank=True)
     mark = models.CharField(max_length=50, blank=True)
-    startdate = models.DateField(null=True)
-    enddate = models.DateField(null=True)
+    date = models.DateField(null=True)
+
 
     def __str__(self):
         return f"{self.profile.user.username} - Education"

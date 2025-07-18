@@ -1,21 +1,49 @@
 {% load static %}
 {% load tailwind_tags %}
-
+{% load widget_tweaks %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="transition-colors duration-300">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
 {% block 'title' %}
   <title>Login</title>
 {% endblock %} 
-
-
   {% tailwind_css %}
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config for Dark Mode -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+
+  <!-- Dark Mode Auto Loader -->
+  <script>
+    if (localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    }
+  </script>
 </head>
 
 {% block 'body' %}
-
-{% endblock %}
+{% endblock  %}
 
 </html>

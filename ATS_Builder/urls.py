@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path,include
 from accounts import urls as authurl
 from resume import urls as resumeurl
+from ai_helper import urls as pdfurl
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(authurl)),
     path('',include(resumeurl)),
+    path('',include(pdfurl)),
 
 
     
