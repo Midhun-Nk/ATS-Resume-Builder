@@ -21,7 +21,8 @@ def login_view(request):
 
 @login_required
 def home_view(request):
-    return render(request,'views/home.html')
+    profile = request.user.profilemodel
+    return render(request,'views/home.html',{'profile':profile})
 
 
 def register_view(request):
