@@ -1,36 +1,56 @@
 {% load widget_tweaks %}
-
+<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">First Project</h2>
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Project</label>
-        {{ project_form.project|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        {{ project_form.first_project|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">GitHub</label>
-        {{ project_form.github|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        {{ project_form.first_github|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 1</label>
-        {{ project_form.description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        {{ project_form.first_description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
-
+  <div class="-mx-3 md:flex mb-6">
+          <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 2</label>
+        {{ project_form.first_description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+ <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Stack</label>
+        {{ project_form.first_techstack|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+    </div>
+<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Second Project</h2>
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 2</label>
-        {{ project_form.description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Project</label>
+        {{ project_form.second_project|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ experience_form.startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">GitHub</label>
+        {{ project_form.second_github|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ experience_form.enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 1</label>
+        {{ project_form.second_description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
 
-    
+
+  <div class="-mx-3 md:flex mb-6">
+    <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 2</label>
+        {{ project_form.second_description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+ <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Stack</label>
+        {{ project_form.second_techstack|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+    </div>
   <div class="space-y-6 mt-6">
   {% for project in project_instance %}
    <div

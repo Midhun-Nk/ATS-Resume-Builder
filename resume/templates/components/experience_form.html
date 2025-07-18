@@ -1,8 +1,9 @@
 {% load widget_tweaks %}
+<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Frist Experience</h2>
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
-        {{ experience_form.experience|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        {{ experience_form.first_experience|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Summary</label>
@@ -10,22 +11,53 @@
       </div>
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 1</label>
-        {{ experience_form.description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        {{ experience_form.first_description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
 
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 2</label>
-        {{ experience_form.description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        {{ experience_form.first_description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ experience_form.startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        {{ experience_form.first_exp_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ experience_form.enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        {{ experience_form.first_exp_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+
+    </div>
+<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Second Experience</h2>
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
+        {{ experience_form.second_experience|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Summary</label>
+        {{ experience_form.summary|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 1</label>
+        {{ experience_form.second_description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+    </div>
+
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 2</label>
+        {{ experience_form.second_description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
+        {{ experience_form.second_exp_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
+        {{ experience_form.second_exp_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
 
     </div>

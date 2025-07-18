@@ -6,9 +6,16 @@ from accounts.models import ProfileModel
 
 class EducationModel(models.Model):
     profile = models.ForeignKey(ProfileModel, on_delete=models.CASCADE, related_name="educations")
-    education = models.CharField(max_length=50, blank=True)
-    mark = models.CharField(max_length=50, blank=True)
-    date = models.DateField(null=True)
+
+    #First Education
+    first_education = models.CharField(max_length=50, blank=True)
+    first_mark = models.CharField(max_length=50, blank=True)
+    first_edu_date = models.DateField(null=True)
+
+    #Second Education
+    second_education = models.CharField(max_length=50, blank=True)
+    second_mark = models.CharField(max_length=50, blank=True)
+    second_edu_date = models.DateField(null=True)
 
 
     def __str__(self):
@@ -16,31 +23,63 @@ class EducationModel(models.Model):
 
 class CertificateModel(models.Model):
     profile = models.ForeignKey(ProfileModel, on_delete=models.CASCADE, related_name="certificates")
-    certificate = models.CharField(max_length=50, blank=True)
-    startdate = models.DateField(null=True)
-    enddate = models.DateField(null=True)
+
+    #First Certificate
+    first_certificate = models.CharField(max_length=50, blank=True)
+    first_cert_startdate = models.DateField(null=True)
+    first_cert_enddate = models.DateField(null=True)
+    #Second Certificate
+    second_certificate = models.CharField(max_length=50, blank=True)
+    second_cert_startdate = models.DateField(null=True)
+    second_cert_enddate = models.DateField(null=True)
+    #Third Certificate
+    third_certificate = models.CharField(max_length=50, blank=True)
+    third_cert_startdate = models.DateField(null=True)
+    third_cert_enddate = models.DateField(null=True)
+    #Fourth Certificate
+    fourth_certificate = models.CharField(max_length=50, blank=True)
+    fourth_cert_startdate = models.DateField(null=True)
+    fourth_cert_enddate = models.DateField(null=True)
     def __str__(self):
         return f"{self.profile.user.username} - Certificate"
+    
 
 
 class ExperienceModel(models.Model):
     profile = models.ForeignKey(ProfileModel, on_delete=models.CASCADE, related_name="experiences")
-    experience = models.CharField(max_length=50, blank=True)
     summary = models.CharField(max_length=100, blank=True)
-    description1 = models.CharField(max_length=100, blank=True)
-    description2 = models.CharField(max_length=100, blank=True)
-    startdate = models.DateField(null=True)
-    enddate = models.DateField(null=True)
+    #First Experience
+    first_experience = models.CharField(max_length=50, blank=True)
+    first_description1 = models.CharField(max_length=100, blank=True)
+    first_description2 = models.CharField(max_length=100, blank=True)
+    first_exp_startdate = models.DateField(null=True)
+    first_exp_enddate = models.DateField(null=True)
+
+    #Second Experience
+    second_experience = models.CharField(max_length=50, blank=True)
+    second_description1 = models.CharField(max_length=100, blank=True)
+    second_description2 = models.CharField(max_length=100, blank=True)
+    second_exp_startdate = models.DateField(null=True)
+    second_exp_enddate = models.DateField(null=True)
     def __str__(self):
         return f"{self.profile.user.username} - Experience"
+    
 
 class ProjectModel(models.Model):
     profile = models.ForeignKey(ProfileModel, on_delete=models.CASCADE, related_name="projects")
-    project = models.CharField(max_length=50, blank=True)
-    github = models.CharField(max_length=100, blank=True)
-    description1 = models.CharField(max_length=100, blank=True)
-    description2 = models.CharField(max_length=100, blank=True)
-    techstack = models.CharField(max_length=100, blank=True)
+    #First Project 
+    first_project = models.CharField(max_length=50, blank=True)
+    first_github = models.CharField(max_length=100, blank=True)
+    first_description1 = models.CharField(max_length=100, blank=True)
+    first_description2 = models.CharField(max_length=100, blank=True)
+    first_techstack = models.CharField(max_length=100, blank=True)
+
+    #Second Project 
+    second_project = models.CharField(max_length=50, blank=True)
+    second_github = models.CharField(max_length=100, blank=True)
+    second_description1 = models.CharField(max_length=100, blank=True)
+    second_description2 = models.CharField(max_length=100, blank=True)
+    second_techstack = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return f"{self.profile.user.username} - Project"
