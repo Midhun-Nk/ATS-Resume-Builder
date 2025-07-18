@@ -66,33 +66,54 @@
   {% for exp in experience_instance %}
    <div
   class="experience-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
-  onclick="populateExperienceForm(`{{ exp.experience }}`, `{{ exp.summary }}`, `{{ exp.description1 }}`, `{{ exp.description2 }}`, `{{ exp.startdate }}`, `{{ exp.enddate }}`)">
+  onclick="populateExperienceForm(`{{ exp.first_experience }}`, `{{ exp.summary }}`, `{{ exp.first_description1 }}`, `{{ exp.first_description2 }}`, `{{ exp.first_exp_startdate }}`, `{{ exp.first_exp_enddate }}`,`{{ exp.second_experience }}`, `{{ exp.second_description1 }}`, `{{ exp.second_description2 }}`, `{{ exp.second_exp_startdate }}`, `{{ exp.second_exp_enddate }}`)">
 
       <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ exp.experience }}
+        {{ exp.first_experience }}
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-1">
         <span class="font-medium text-gray-700 dark:text-gray-200">Summary:</span> {{ exp.summary }}
       </p>
       <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
-        <li>{{ exp.description1 }}</li>
-        <li>{{ exp.description2 }}</li>
+        <li>{{ exp.first_description1 }}</li>
+        <li>{{ exp.first_description2 }}</li>
       </ul>
       <div class="text-sm text-gray-500 dark:text-gray-400">
-        <span class="mr-2">📅 <strong>From:</strong> {{ exp.startdate }}</span>
-        <span>➡️ <strong>To:</strong> {{ exp.enddate }}</span>
+        <span class="mr-2">📅 <strong>From:</strong> {{ exp.first_exp_startdate }}</span>
+        <span>➡️ <strong>To:</strong> {{ exp.first_exp_enddate }}</span>
+        
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        {{ exp.second_experience }}
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-1">
+        <span class="font-medium text-gray-700 dark:text-gray-200">Summary:</span> {{ exp.summary }}
+      </p>
+      <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
+        <li>{{ exp.second_description1 }}</li>
+        <li>{{ exp.second_description2 }}</li>
+      </ul>
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <span class="mr-2">📅 <strong>From:</strong> {{ exp.second_exp_startdate }}</span>
+        <span>➡️ <strong>To:</strong> {{ exp.second_exp_enddate }}</span>
       </div>
     </div>
   {% endfor %}
-</div>
-<script>
-  function populateExperienceForm(experience, summary, description1, description2, startdate, enddate) {
-    document.querySelector('[name="experience"]').value = experience;
+</div><script>
+  function populateExperienceForm(first_experience, summary, first_description1, first_description2, first_exp_startdate, first_exp_enddate,second_experience, second_description1, second_description2, second_exp_startdate, second_exp_enddate) {
+    // Update for FIRST experience fields
+    document.querySelector('[name="first_experience"]').value = first_experience;
     document.querySelector('[name="summary"]').value = summary;
-    document.querySelector('[name="description1"]').value = description1;
-    document.querySelector('[name="description2"]').value = description2;
-    document.querySelector('[name="startdate"]').value = startdate;
-    document.querySelector('[name="enddate"]').value = enddate;
+    document.querySelector('[name="first_description1"]').value = first_description1;
+    document.querySelector('[name="first_description2"]').value = first_description2;
+    document.querySelector('[name="first_exp_startdate"]').value = first_exp_startdate;
+    document.querySelector('[name="first_exp_enddate"]').value = first_exp_enddate;
+
+    // OPTIONAL: Clear second experience fields (optional for clarity)
+    document.querySelector('[name="second_experience"]').value = second_experience;
+    document.querySelector('[name="second_description1"]').value = second_description1;
+    document.querySelector('[name="second_description2"]').value = second_description2;
+    document.querySelector('[name="second_exp_startdate"]').value = second_exp_startdate;
+    document.querySelector('[name="second_exp_enddate"]').value = second_exp_enddate;
 
     // Remove highlight from all experience cards
     document.querySelectorAll('.experience-card').forEach(card => {

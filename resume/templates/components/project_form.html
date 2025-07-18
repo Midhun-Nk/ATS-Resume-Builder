@@ -55,32 +55,46 @@
   {% for project in project_instance %}
    <div
   class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
-  onclick="populateProjectForm(`{{ project.project }}`, `{{ project.github }}`, `{{ project.description1 }}`, `{{ project.description2 }}`, `{{ project.startdate }}`, `{{ project.enddate }}`)">
+  onclick="populateProjectForm(`{{ project.first_project }}`, `{{ project.first_github }}`, `{{ project.first_description1 }}`, `{{ project.first_description2 }}`, `{{ project.first_techstack }}`, `{{ project.second_project }}`, `{{ project.second_github }}`, `{{ project.second_description1 }}`, `{{ project.second_description2 }}`,`{{ project.second_techstack }}`,)">
 
       <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ project.project }}
+        {{ project.first_project }}
       </h2>
       <p class="text-gray-600 dark:text-gray-300 mb-1">
-        <span class="font-medium text-gray-700 dark:text-gray-200">github:</span> {{ project.github }}
+        <span class="font-medium text-gray-700 dark:text-gray-200">github:</span> {{ project.first_github }}
       </p>
       <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
-        <li>{{ project.description1 }}</li>
-        <li>{{ project.description2 }}</li>
-        <li>{{ project.techstack }}</li>
+        <li>{{ project.first_description1 }}</li>
+        <li>{{ project.first_description2 }}</li>
+        <li>{{ project.first_techstack }}</li>
+      </ul>
+    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        {{ project.second_project }}
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 mb-1">
+        <span class="font-medium text-gray-700 dark:text-gray-200">github:</span> {{ project.second_github }}
+      </p>
+      <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
+        <li>{{ project.second_description1 }}</li>
+        <li>{{ project.second_description2 }}</li>
+        <li>{{ project.second_techstack }}</li>
       </ul>
    
     </div>
   {% endfor %}
 </div>
 <script>
-  function populateProjectForm(project, github, description1, description2, startdate, enddate) {
-    document.querySelector('[name="project"]').value = project;
-    document.querySelector('[name="github"]').value = github;
-    document.querySelector('[name="description1"]').value = description1;
-    document.querySelector('[name="description2"]').value = description2;
-    document.querySelector('[name="startdate"]').value = startdate;
-    document.querySelector('[name="enddate"]').value = enddate;
-
+  function populateProjectForm(first_project, first_github, first_description1, first_description2,first_techstack,second_project, second_github, second_description1, second_description2,second_techstack,) {
+    document.querySelector('[name="first_project"]').value = first_project;
+    document.querySelector('[name="first_github"]').value = first_github;
+    document.querySelector('[name="first_description1"]').value = first_description1;
+    document.querySelector('[name="first_description2"]').value = first_description2;
+     document.querySelector('[name="first_techstack"]').value = first_techstack;
+     document.querySelector('[name="second_project"]').value = second_project;
+    document.querySelector('[name="second_github"]').value = second_github;
+    document.querySelector('[name="second_description1"]').value = second_description1;
+    document.querySelector('[name="second_description2"]').value = second_description2;
+document.querySelector('[name="second_techstack"]').value = second_techstack;
     // Remove highlight from all project cards
     document.querySelectorAll('.project-card').forEach(card => {
       card.classList.remove('ring-2', 'ring-blue-400', 'shadow-lg');

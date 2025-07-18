@@ -63,25 +63,59 @@
   {% for certificate in certificate_instance %}
    <div
   class="certificate-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
-  onclick="populateCertificateForm(`{{ certificate.certificate }}`, `{{ certificate.startdate }}`, `{{ certificate.enddate }}`)">
+  onclick="populateCertificateForm(`{{ certificate.first_certificate }}`, `{{ certificate.first_cert_startdate }}`, `{{ certificate.first_cert_enddate }}`,`{{ certificate.second_certificate }}`, `{{ certificate.second_cert_startdate }}`, `{{ certificate.second_cert_enddate }}`,`{{ certificate.third_certificate }}`, `{{ certificate.third_cert_startdate }}`, `{{ certificate.third_cert_enddate }}`,`{{ certificate.fourth_certificate }}`, `{{ certificate.fourth_cert_startdate }}`, `{{ certificate.fourth_cert_enddate }}`)">
 
       <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ certificate.certificate }}
+        {{ certificate.first_certificate }}
       </h2>
       
     
       <div class="text-sm text-gray-500 dark:text-gray-400">
-        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.startdate }}</span>
-        <span>➡️ <strong>To:</strong> {{ certificate.enddate }}</span>
+        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.first_cert_startdate }}</span>
+        <span>➡️ <strong>To:</strong> {{ certificate.first_cert_enddate }}</span>
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        {{ certificate.second_certificate }}
+      </h2>
+      
+    
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.second_cert_startdate }}</span>
+        <span>➡️ <strong>To:</strong> {{ certificate.second_cert_enddate }}</span>
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        {{ certificate.third_certificate }}
+      </h2>
+      
+    
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.third_cert_startdate }}</span>
+        <span>➡️ <strong>To:</strong> {{ certificate.third_cert_enddate }}</span>
+
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+        {{ certificate.fourth_certificate }}
+      </h2>
+      
+    
+      <div class="text-sm text-gray-500 dark:text-gray-400">
+        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.fourth_cert_startdate }}</span>
+        <span>➡️ <strong>To:</strong> {{ certificate.fourth_cert_enddate }}</span>
       </div>
     </div>
   {% endfor %}
 </div>
 <script>
-  function populateCertificateForm(certificate, startdate, enddate) {
-    document.querySelector('[name="certificate"]').value = certificate;
-    document.querySelector('[name="startdate"]').value = startdate;
-    document.querySelector('[name="enddate"]').value = enddate;
+  function populateCertificateForm(first_certificate, first_cert_startdate, first_cert_enddate,second_certificate, second_cert_startdate, second_cert_enddate,third_certificate, third_cert_startdate, third_cert_enddate,fourth_certificate, fourth_cert_startdate, fourth_cert_enddate) {
+    document.querySelector('[name="first_certificate"]').value = first_certificate;
+    document.querySelector('[name="first_cert_startdate"]').value = first_cert_startdate;
+    document.querySelector('[name="first_cert_enddate"]').value =first_cert_enddate;
+  document.querySelector('[name="second_certificate"]').value = second_certificate;
+    document.querySelector('[name="second_cert_startdate"]').value = second_cert_startdate;
+    document.querySelector('[name="second_cert_enddate"]').value =second_cert_enddate;
+  document.querySelector('[name="third_certificate"]').value = third_certificate;
+    document.querySelector('[name="third_cert_startdate"]').value = third_cert_startdate;
+    document.querySelector('[name="third_cert_enddate"]').value =third_cert_enddate;
+  document.querySelector('[name="fourth_certificate"]').value = fourth_certificate;
+    document.querySelector('[name="fourth_cert_startdate"]').value = fourth_cert_startdate;
+    document.querySelector('[name="fourth_cert_enddate"]').value =fourth_cert_enddate;
 
     // Remove highlight from all certificate cards
     document.querySelectorAll('.certificate-card').forEach(card => {
