@@ -2,74 +2,106 @@
 <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Degree</h2>
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Education</label>
-        {{ education_form.first_education|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">College</label>
+        {{ education_form.first_college|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Degree</label>
+        {{ education_form.first_degree|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Mark</label>
         {{ education_form.first_mark|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
+    </div>
+        <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Date</label>
-        {{ education_form.first_edu_date|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
+        {{ education_form.first_edu_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
+        {{ education_form.first_edu_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+
     </div>
 <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Higher Education</h2>
     <div class="-mx-3 md:flex mb-6">
       <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Education</label>
-        {{ education_form.second_education|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">College</label>
+        {{ education_form.second_college|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Degree</label>
+        {{ education_form.second_degree|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
       <div class="md:w-1/3 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Mark</label>
         {{ education_form.second_mark|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Date</label>
-        {{ education_form.second_edu_date|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
     </div>
+        <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
+        {{ education_form.second_edu_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
+      <div class="md:w-1/3 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
+        {{ education_form.second_edu_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
 
+    </div>
   <div class="space-y-6 mt-6">
   {% for education in education_instance %}
-   <div
+  <div
+  id="educationCard{{ forloop.counter }}"
   class="education-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
-  onclick="populateEducationForm(`{{ education.first_education }}`, `{{ education.first_mark }}`, `{{ education.first_edu_date }}`,`{{ education.second_education }}`, `{{ education.second_mark }}`, `{{ education.second_edu_date }}`)">
+  onclick="populateEducationForm(this, '{{ education.first_college }}', '{{ education.first_degree }}', '{{ education.first_mark }}', '{{ education.first_edu_startdate }}', '{{ education.first_edu_enddate }}', '{{ education.second_college }}', '{{ education.second_degree }}', '{{ education.second_mark }}', '{{ education.second_edu_startdate }}', '{{ education.second_edu_enddate }}')">
 
       <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ education.first_education }}
+        {{ education.first_college }} ,{{ education.first_degree }}
       </h2>
 
       <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
         <li>{{ education.first_mark }}</li>
-        <li>{{ education.first_edu_date }}</li>
+        <li>{{ education.first_edu_startdate }}-{{ education.first_edu_enddate }} </li>
       </ul>
  <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ education.second_education }}
+        {{ education.second_college }},  {{ education.second_degree }}
       </h2>
 
       <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
         <li>{{ education.second_mark }}</li>
-        <li>{{ education.second_edu_date }}</li>
+        <li>{{ education.second_edu_startdate }}-{{ education.second_edu_enddate }}</li>
       </ul>
 
     </div>
   {% endfor %}
+
 </div>
 <script>
-  function populateEducationForm(first_education, first_mark, first_edu_date,second_education, second_mark, second_edu_date) {
-    document.querySelector('[name="first_education"]').value = first_education;
-    document.querySelector('[name="first_mark"]').value = first_mark;
-    document.querySelector('[name="first_edu_date"]').value = first_edu_date;
-    document.querySelector('[name="second_education"]').value = second_education;
-    document.querySelector('[name="second_mark"]').value = second_mark;
-    document.querySelector('[name="second_edu_date"]').value = second_edu_date;
-    // Remove highlight from all education cards
-    document.querySelectorAll('.education-card').forEach(card => {
-      card.classList.remove('ring-2', 'ring-blue-400', 'shadow-lg');
-    });
+function populateEducationForm(element, firstCollege, firstDegree, firstMark, firstStartDate, firstEndDate, secondCollege, secondDegree, secondMark, secondStartDate, secondEndDate) {
+  // Fill form fields
+  document.getElementById('id_first_college').value = firstCollege;
+  document.getElementById('id_first_degree').value = firstDegree;
+  document.getElementById('id_first_mark').value = firstMark;
+  document.getElementById('id_first_edu_startdate').value = firstStartDate;
+  document.getElementById('id_first_edu_enddate').value = firstEndDate;
 
-    // Add highlight to the clicked education card
-    event.currentTarget.classList.add('ring-2', 'ring-blue-400', 'shadow-lg');
-  }
+  document.getElementById('id_second_college').value = secondCollege;
+  document.getElementById('id_second_degree').value = secondDegree;
+  document.getElementById('id_second_mark').value = secondMark;
+  document.getElementById('id_second_edu_startdate').value = secondStartDate;
+  document.getElementById('id_second_edu_enddate').value = secondEndDate;
+
+  // Remove highlight from all cards
+  document.querySelectorAll('.education-card').forEach((card) => {
+    card.classList.remove('border-blue-500', 'bg-blue-50');
+    card.classList.add('border-gray-200', 'dark:border-gray-700');
+  });
+
+  // Add highlight to selected card
+  element.classList.remove('border-gray-200', 'dark:border-gray-700');
+  element.classList.add('border-blue-500', 'bg-blue-50');
+}
 </script>

@@ -12,6 +12,7 @@ from .utlis import user_directory
 class ProfileModel(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, blank=True)
+    location = models.CharField(max_length=50, blank=True)
     image = models.ImageField(null=True, upload_to=user_directory)
     email = models.EmailField(blank=True)
     phone_number = models.BigIntegerField(blank=True, null=True)

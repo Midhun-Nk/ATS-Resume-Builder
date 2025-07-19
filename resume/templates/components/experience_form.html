@@ -1,126 +1,122 @@
 {% load widget_tweaks %}
-<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Frist Experience</h2>
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
-        {{ experience_form.first_experience|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+<div class="md:flex md:space-x-6">
+  <!-- LEFT SIDE: FORM -->
+  <div class="md:w-1/2 w-full">
+    <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">First Experience</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Name</label>
+        {{ experience_form.first_exp_title|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Summary</label>
-        {{ experience_form.summary|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Company</label>
+        {{ experience_form.first_exp_place|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 1</label>
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Description 1</label>
         {{ experience_form.first_description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-    </div>
-
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 2</label>
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Description 2</label>
         {{ experience_form.first_description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Start Date</label>
         {{ experience_form.first_exp_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">End Date</label>
         {{ experience_form.first_exp_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-
+      <div class="md:col-span-2">
+        <label class="block uppercase text-xs font-bold mb-2">Summary</label>
+        {{ experience_form.first_summary|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
     </div>
-<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Second Experience</h2>
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Name</label>
-        {{ experience_form.second_experience|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+
+    <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Second Experience</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Name</label>
+        {{ experience_form.second_exp_title|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Summary</label>
-        {{ experience_form.summary|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Company</label>
+        {{ experience_form.second_exp_place|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 1</label>
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Description 1</label>
         {{ experience_form.second_description1|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-    </div>
-
-    <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description 2</label>
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Description 2</label>
         {{ experience_form.second_description2|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">Start Date</label>
         {{ experience_form.second_exp_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
+      <div>
+        <label class="block uppercase text-xs font-bold mb-2">End Date</label>
         {{ experience_form.second_exp_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-
+      <div class="md:col-span-2">
+        <label class="block uppercase text-xs font-bold mb-2">Summary</label>
+        {{ experience_form.second_summary|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      </div>
     </div>
+  </div>
 
-  <div class="space-y-6 mt-6">
-  {% for exp in experience_instance %}
-   <div
-  class="experience-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
-  onclick="populateExperienceForm(`{{ exp.first_experience }}`, `{{ exp.summary }}`, `{{ exp.first_description1 }}`, `{{ exp.first_description2 }}`, `{{ exp.first_exp_startdate }}`, `{{ exp.first_exp_enddate }}`,`{{ exp.second_experience }}`, `{{ exp.second_description1 }}`, `{{ exp.second_description2 }}`, `{{ exp.second_exp_startdate }}`, `{{ exp.second_exp_enddate }}`)">
-
-      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ exp.first_experience }}
-      </h2>
-      <p class="text-gray-600 dark:text-gray-300 mb-1">
-        <span class="font-medium text-gray-700 dark:text-gray-200">Summary:</span> {{ exp.summary }}
+  <!-- RIGHT SIDE: EXPERIENCE CARD SELECTION -->
+  <div class="md:w-1/2 w-full space-y-6 mt-6 md:mt-0">
+    {% for exp in experience_instance %}
+    <div
+      class="experience-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
+      onclick="populateExperienceForm(`{{ exp.first_experience }}`, `{{ exp.first_summary }}`, `{{ exp.first_description1 }}`, `{{ exp.first_description2 }}`, `{{ exp.first_exp_startdate }}`, `{{ exp.first_exp_enddate }}`, `{{ exp.second_experience }}`, `{{ exp.second_summary }}`, `{{ exp.second_description1 }}`, `{{ exp.second_description2 }}`, `{{ exp.second_exp_startdate }}`, `{{ exp.second_exp_enddate }}`)">
+      <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">{{ exp.first_experience }}</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-sm mb-1">
+        <strong>Summary:</strong> {{ exp.first_summary }}
       </p>
-      <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
+      <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-300 space-y-1">
         <li>{{ exp.first_description1 }}</li>
         <li>{{ exp.first_description2 }}</li>
       </ul>
-      <div class="text-sm text-gray-500 dark:text-gray-400">
-        <span class="mr-2">📅 <strong>From:</strong> {{ exp.first_exp_startdate }}</span>
-        <span>➡️ <strong>To:</strong> {{ exp.first_exp_enddate }}</span>
-        
-      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ exp.second_experience }}
-      </h2>
-      <p class="text-gray-600 dark:text-gray-300 mb-1">
-        <span class="font-medium text-gray-700 dark:text-gray-200">Summary:</span> {{ exp.summary }}
+      <p class="text-xs text-gray-500 mt-2">📅 {{ exp.first_exp_startdate }} ➡️ {{ exp.first_exp_enddate }}</p>
+
+      <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mt-4">{{ exp.second_experience }}</h2>
+      <p class="text-gray-600 dark:text-gray-300 text-sm mb-1">
+        <strong>Summary:</strong> {{ exp.second_summary }}
       </p>
-      <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
+      <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-300 space-y-1">
         <li>{{ exp.second_description1 }}</li>
         <li>{{ exp.second_description2 }}</li>
       </ul>
-      <div class="text-sm text-gray-500 dark:text-gray-400">
-        <span class="mr-2">📅 <strong>From:</strong> {{ exp.second_exp_startdate }}</span>
-        <span>➡️ <strong>To:</strong> {{ exp.second_exp_enddate }}</span>
-      </div>
+      <p class="text-xs text-gray-500 mt-2">📅 {{ exp.second_exp_startdate }} ➡️ {{ exp.second_exp_enddate }}</p>
     </div>
-  {% endfor %}
-</div><script>
-  function populateExperienceForm(first_experience, summary, first_description1, first_description2, first_exp_startdate, first_exp_enddate,second_experience, second_description1, second_description2, second_exp_startdate, second_exp_enddate) {
-    // Update for FIRST experience fields
-    document.querySelector('[name="first_experience"]').value = first_experience;
-    document.querySelector('[name="summary"]').value = summary;
+    {% endfor %}
+  </div>
+</div>
+
+<!-- ✅ SCRIPT UPDATED FOR FIELD NAMES -->
+<script>
+  function populateExperienceForm(first_exp_title, first_summary, first_description1, first_description2, first_exp_startdate, first_exp_enddate, second_exp_title, second_summary, second_description1, second_description2, second_exp_startdate, second_exp_enddate) {
+    document.querySelector('[name="first_exp_title"]').value = first_exp_title;
+    document.querySelector('[name="first_summary"]').value = first_summary;
     document.querySelector('[name="first_description1"]').value = first_description1;
     document.querySelector('[name="first_description2"]').value = first_description2;
     document.querySelector('[name="first_exp_startdate"]').value = first_exp_startdate;
     document.querySelector('[name="first_exp_enddate"]').value = first_exp_enddate;
 
-    // OPTIONAL: Clear second experience fields (optional for clarity)
-    document.querySelector('[name="second_experience"]').value = second_experience;
+    document.querySelector('[name="second_exp_title"]').value = second_exp_title;
+    document.querySelector('[name="second_summary"]').value = second_summary;
     document.querySelector('[name="second_description1"]').value = second_description1;
     document.querySelector('[name="second_description2"]').value = second_description2;
     document.querySelector('[name="second_exp_startdate"]').value = second_exp_startdate;
     document.querySelector('[name="second_exp_enddate"]').value = second_exp_enddate;
 
-    // Remove highlight from all experience cards
     document.querySelectorAll('.experience-card').forEach(card => {
       card.classList.remove('ring-2', 'ring-blue-400', 'shadow-lg');
     });
-
-    // Add highlight to the clicked card
     event.currentTarget.classList.add('ring-2', 'ring-blue-400', 'shadow-lg');
   }
 </script>

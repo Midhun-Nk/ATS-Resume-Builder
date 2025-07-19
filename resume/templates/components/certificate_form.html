@@ -1,128 +1,103 @@
 {% load widget_tweaks %}
-<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">First Certificate</h2>
+<div class="md:flex gap-6">
+  <!-- Left side: Certificate Form -->
+  <div class="md:w-1/2">
+    <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">First Certificate</h2>
     <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/3 px-3">
+      <div class="md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Certificate</label>
         {{ certificate_form.first_certificate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ certificate_form.first_cert_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ certificate_form.first_cert_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      <div class="md:w-1/2 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Date</label>
+        {{ certificate_form.first_cert_date|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
-<h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Second Certificate</h2>
-   <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/3 px-3">
+
+    <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Second Certificate</h2>
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Certificate</label>
         {{ certificate_form.second_certificate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ certificate_form.second_cert_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ certificate_form.second_cert_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      <div class="md:w-1/2 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Date</label>
+        {{ certificate_form.second_cert_date|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
+
     <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Third Certificate</h2>
-   <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/3 px-3">
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Certificate</label>
         {{ certificate_form.third_certificate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ certificate_form.third_cert_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ certificate_form.third_cert_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      <div class="md:w-1/2 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Date</label>
+        {{ certificate_form.third_cert_date|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
-        <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Fourth Certificate</h2>
-   <div class="-mx-3 md:flex mb-6">
-      <div class="md:w-1/3 px-3">
+
+    <h2 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-100">Fourth Certificate</h2>
+    <div class="-mx-3 md:flex mb-6">
+      <div class="md:w-1/2 px-3">
         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Certificate</label>
         {{ certificate_form.fourth_certificate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Start Date</label>
-        {{ certificate_form.fourth_cert_startdate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
-      </div>
-      <div class="md:w-1/3 px-3">
-        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">End Date</label>
-        {{ certificate_form.fourth_cert_enddate|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+      <div class="md:w-1/2 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Date</label>
+        {{ certificate_form.fourth_cert_date|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
       </div>
     </div>
-  <div class="space-y-6 mt-6">
-  {% for certificate in certificate_instance %}
-   <div
-  class="certificate-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
-  onclick="populateCertificateForm(`{{ certificate.first_certificate }}`, `{{ certificate.first_cert_startdate }}`, `{{ certificate.first_cert_enddate }}`,`{{ certificate.second_certificate }}`, `{{ certificate.second_cert_startdate }}`, `{{ certificate.second_cert_enddate }}`,`{{ certificate.third_certificate }}`, `{{ certificate.third_cert_startdate }}`, `{{ certificate.third_cert_enddate }}`,`{{ certificate.fourth_certificate }}`, `{{ certificate.fourth_cert_startdate }}`, `{{ certificate.fourth_cert_enddate }}`)">
+  </div>
 
-      <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ certificate.first_certificate }}
-      </h2>
-      
-    
-      <div class="text-sm text-gray-500 dark:text-gray-400">
-        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.first_cert_startdate }}</span>
-        <span>➡️ <strong>To:</strong> {{ certificate.first_cert_enddate }}</span>
-          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ certificate.second_certificate }}
-      </h2>
-      
-    
-      <div class="text-sm text-gray-500 dark:text-gray-400">
-        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.second_cert_startdate }}</span>
-        <span>➡️ <strong>To:</strong> {{ certificate.second_cert_enddate }}</span>
-          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ certificate.third_certificate }}
-      </h2>
-      
-    
-      <div class="text-sm text-gray-500 dark:text-gray-400">
-        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.third_cert_startdate }}</span>
-        <span>➡️ <strong>To:</strong> {{ certificate.third_cert_enddate }}</span>
+  <!-- Right side: Certificate Cards -->
+  <div class="md:w-1/2 space-y-6 mt-6 md:mt-0">
+    {% for certificate in certificate_instance %}
+      <div
+        class="certificate-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
+        onclick="populateCertificateForm(event, `{{ certificate.first_certificate }}`, `{{ certificate.first_cert_date }}`, `{{ certificate.second_certificate }}`, `{{ certificate.second_cert_date }}`, `{{ certificate.third_certificate }}`, `{{ certificate.third_cert_date }}`, `{{ certificate.fourth_certificate }}`, `{{ certificate.fourth_cert_date }}`)">
+        
+        {% if certificate.first_certificate %}
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-1">{{ certificate.first_certificate }}</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">📅 {{ certificate.first_cert_date }}</p>
+        {% endif %}
 
-          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-        {{ certificate.fourth_certificate }}
-      </h2>
-      
-    
-      <div class="text-sm text-gray-500 dark:text-gray-400">
-        <span class="mr-2">📅 <strong>From:</strong> {{ certificate.fourth_cert_startdate }}</span>
-        <span>➡️ <strong>To:</strong> {{ certificate.fourth_cert_enddate }}</span>
+        {% if certificate.second_certificate %}
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-1">{{ certificate.second_certificate }}</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">📅 {{ certificate.second_cert_date }}</p>
+        {% endif %}
+
+        {% if certificate.third_certificate %}
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-1">{{ certificate.third_certificate }}</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">📅 {{ certificate.third_cert_date }}</p>
+        {% endif %}
+
+        {% if certificate.fourth_certificate %}
+          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-1">{{ certificate.fourth_certificate }}</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400">📅 {{ certificate.fourth_cert_date }}</p>
+        {% endif %}
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
-<script>
-  function populateCertificateForm(first_certificate, first_cert_startdate, first_cert_enddate,second_certificate, second_cert_startdate, second_cert_enddate,third_certificate, third_cert_startdate, third_cert_enddate,fourth_certificate, fourth_cert_startdate, fourth_cert_enddate) {
-    document.querySelector('[name="first_certificate"]').value = first_certificate;
-    document.querySelector('[name="first_cert_startdate"]').value = first_cert_startdate;
-    document.querySelector('[name="first_cert_enddate"]').value =first_cert_enddate;
-  document.querySelector('[name="second_certificate"]').value = second_certificate;
-    document.querySelector('[name="second_cert_startdate"]').value = second_cert_startdate;
-    document.querySelector('[name="second_cert_enddate"]').value =second_cert_enddate;
-  document.querySelector('[name="third_certificate"]').value = third_certificate;
-    document.querySelector('[name="third_cert_startdate"]').value = third_cert_startdate;
-    document.querySelector('[name="third_cert_enddate"]').value =third_cert_enddate;
-  document.querySelector('[name="fourth_certificate"]').value = fourth_certificate;
-    document.querySelector('[name="fourth_cert_startdate"]').value = fourth_cert_startdate;
-    document.querySelector('[name="fourth_cert_enddate"]').value =fourth_cert_enddate;
 
-    // Remove highlight from all certificate cards
+<!-- Script -->
+<script>
+  function populateCertificateForm(event, first_cert, first_date, second_cert, second_date, third_cert, third_date, fourth_cert, fourth_date) {
+    document.querySelector('[name="first_certificate"]').value = first_cert;
+    document.querySelector('[name="first_cert_date"]').value = first_date;
+    document.querySelector('[name="second_certificate"]').value = second_cert;
+    document.querySelector('[name="second_cert_date"]').value = second_date;
+    document.querySelector('[name="third_certificate"]').value = third_cert;
+    document.querySelector('[name="third_cert_date"]').value = third_date;
+    document.querySelector('[name="fourth_certificate"]').value = fourth_cert;
+    document.querySelector('[name="fourth_cert_date"]').value = fourth_date;
+
+    // Highlight active card
     document.querySelectorAll('.certificate-card').forEach(card => {
       card.classList.remove('ring-2', 'ring-blue-400', 'shadow-lg');
     });
-
-    // Add highlight to the clicked card
     event.currentTarget.classList.add('ring-2', 'ring-blue-400', 'shadow-lg');
   }
 </script>

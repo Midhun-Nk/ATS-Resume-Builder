@@ -21,7 +21,10 @@
     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Linguistic</label>
     {{ skill_form.linguistic|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
   </div>
-  <div class="md:w-1/3 px-3"></div>
+  <div class="md:w-1/3 px-3">
+    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Soft Kill</label>
+    {{ skill_form.soft_skill|add_class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4" }}
+  </div>
   <div class="md:w-1/3 px-3"></div>
 </div>
 
@@ -30,7 +33,7 @@
   {% for skill in skill_instance %}
    <div
   class="skill-card bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-200 dark:border-gray-700 cursor-pointer hover:shadow-lg transition"
-  onclick="populateSkillForm(`{{ skill.languages }}`, `{{ skill.framework }}`, `{{ skill.tools }}`, `{{ skill.linguistic }}`)">
+  onclick="populateSkillForm(`{{ skill.languages }}`, `{{ skill.framework }}`, `{{ skill.tools }}`, `{{ skill.linguistic }}`,`{{ skill.soft_skill }}`)">
 
       <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
         {{ skill.languages }}
@@ -39,22 +42,25 @@
         <span class="font-medium text-gray-700 dark:text-gray-200">Languages:</span> {{ skill.languages }}
       </p>
       <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mb-2 space-y-1">
+         <li>{{ skill.languages }}</li>
         <li>{{ skill.framework }}</li>
         <li>{{ skill.tools }}</li>
-        <li>{{ skill.soft_skill }}</li>
         <li>{{ skill.linguistic }}</li>
+        <li>{{ skill.soft_skill }}</li>
+        
       </ul>
     </div>
   {% endfor %}
 </div>
 
 <!-- JavaScript --><script>
-  function populateSkillForm(languages, framework, tools, linguistic) {
+  function populateSkillForm(languages, framework, tools, linguistic,soft_skill) {
     // Populate form fields
     document.querySelector('[name="languages"]').value = languages;
     document.querySelector('[name="framework"]').value = framework;
     document.querySelector('[name="tools"]').value = tools;
     document.querySelector('[name="linguistic"]').value = linguistic;
+    document.querySelector('[name="soft_skill"]').value = soft_skill;
 
     // Remove highlight from all cards
     document.querySelectorAll('.skill-card').forEach(card => {

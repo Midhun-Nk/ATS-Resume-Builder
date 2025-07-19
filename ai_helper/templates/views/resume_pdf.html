@@ -113,9 +113,9 @@
 </head>
 <body>
 
-  <h1>Midhun NK</h1>
+  <h1>{{profile.name}}</h1>
   <div class="center">
-    <p>Kozhikode, Kerala | <a href="mailto:midhunnk2021@gmail.com">midhunnk2021@gmail.com</a> | <a href="tel:+917994863515">7994863515</a></p>
+    <p>Kozhikode, Kerala | <a href="mailto:midhunnk2021@gmail.com">{{profile.email}}</a> | <a href="tel:+917994863515">7994863515</a></p>
     <p>
       <a href="https://www.linkedin.com/in/midhun-nk">linkedin.com/in/midhun-nk</a> |
       <a href="https://github.com/Midhun-Nk">github.com/Midhun-Nk</a>
@@ -123,38 +123,43 @@
   </div>
 
   <h2>Summary</h2>
-  <p>Passionate B.Tech Computer Science graduate with a strong interest in software development. Experienced in building full-stack web and mobile applications using Python, JavaScript, Dart, Flutter, and Firebase. Enthusiastic about solving real-world problems through clean, efficient code and continuous learning.</p>
-
+  {% for exp in experiences %}
+  <p>{{exp.summary}}</p>
+{% endfor %}
   <h2>Education</h2>
-  <p><strong>M Dit Engineering College</strong>, B.Tech in Computer Science<br>
-  August 2021 – April 2025<br>
-  • CGPA: 8.12/10.00</p>
+    {% for edu in educations %}
+  <p><strong>{{edu.first_education}}</strong>, B.Tech in Computer Science<br>
+  {{edu.first_edu_date}} – {{edu.first_edu_date}}<br>
+  • CGPA {{edu.first_mark}}/10</p>
 
-  <p><strong>Poilkave HSS</strong>, Higher Secondary in Computer Science<br>
-  June 2019 – March 2021<br>
-  • Perc: 87.41%</p>
-
+  <p><strong>{{edu.second_education}}</strong>, Higher Secondary in Computer Science<br>
+  {{edu.second_edu_date}} – {{edu.second_edu_date}}<br>
+  • Perc: {{edu.second_mark}}%</p>
+{% endfor %}
   <h2>Experience</h2>
-  <p><strong>Freelance Developer</strong>, Self-employed (2022 – 2023)</p>
+   {% for exp in experiences %}
+  <p><strong>{{exp.first_experience}}</strong>, Self-employed (2022 – 2023)</p>
   <ul>
-    <li>Designed and developed responsive web and mobile applications using Flutter, HTML, CSS, and JavaScript.</li>
-    <li>Focused on creating intuitive user interfaces, integrating RESTful APIs, and optimizing performance.</li>
+    <li>{{exp.first_description1}}</li>
+    <li>{{exp.first_description2}}</li>
     <li>Collaborated with clients to translate requirements into functional software solutions.</li>
   </ul>
 
-  <p><strong>Internship in Python Development</strong>, Rivertech (February 2023)</p>
+  <p><strong>{{exp.second_experience}}</strong>, Rivertech (February 2023)</p>
   <ul>
-    <li>Developed Python scripts and contributed to the testing workflows.</li>
+    <li>{{exp.second_description1}}</li>
+     <li>{{exp.second_description2}}</li>
   </ul>
-
+{% endfor %}
   <h2>Certificates</h2>
+     {% for cert in certificates %}
   <ul>
-    <li><a href="https://drive.google.com/file/d/1GZBaAqVS44WCNHwBnZ8_zmXKFBQnpdTU/view?usp=drivesdk">Data Structures using Python</a> – May 2025</li>
+    <li><a href="https://drive.google.com/file/d/1GZBaAqVS44WCNHwBnZ8_zmXKFBQnpdTU/view?usp=drivesdk">{{cert.first_certificate}}</a> – May 2025</li>
     <li><a href="https://drive.google.com/file/d/150Bb8HjWjGq8YZJB1IHcFRb31sFkua88/view?usp=drivesdk">IEEE Hackathon, IEEE SPS Kerala Chapter</a> – February 2025</li>
     <li><a href="https://drive.google.com/file/d/14yNmvKpcKwEE4aABJ17RshNlNrk3ylqG/view?usp=drivesdk">Responsive Web Design</a> – December 2024</li>
     <li><a href="https://drive.google.com/file/d/14xIHmHrX6pvqJhcLe5tQgTUJXNM1Wu5t/view?usp=drivesdk">Internship in Python Development, Rivertech</a> – February 2023</li>
   </ul>
-
+{% endfor %}
   <h2>Projects</h2>
   <p><strong><a href="https://github.com/MiKeStudi0/Disaster-Management">DRM Application</a></strong><br>
   • Developed a disaster management app with real-time alerts, SOS requests, live tracking, and resource management for effective disaster relief activities.<br>
