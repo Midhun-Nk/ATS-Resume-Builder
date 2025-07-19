@@ -17,7 +17,7 @@ def generate_pdf(request):
         'educations': profile.educations.all(),
         'certificates': profile.certificates.all(),
         'projects': profile.projects.all(),
-        'skills': profile.skills.first(),  
+        'skills': profile.skills.all(),  
     }
 
     html_string = render_to_string('views/resume_pdf.html', context)

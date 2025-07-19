@@ -1,74 +1,4 @@
-{% comment %} <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <style>
-        * { font-family: Arial, sans-serif; line-height: 1.4; margin: 0; padding: 0; }
-        body { padding: 30px; font-size: 12px; color: #222; }
-        h1 { font-size: 24px; font-weight: bold; margin-bottom: 5px; }
-        h2 { font-size: 16px; margin-top: 20px; margin-bottom: 5px; border-bottom: 1px solid #ccc; }
-        p, li { font-size: 12px; margin-bottom: 5px; }
-        ul { padding-left: 20px; }
-        .section { margin-top: 10px; }
-        .contact, .links { margin-bottom: 10px; }
-        .title { font-weight: bold; margin-top: 5px; }
-        a { color: #1a0dab; text-decoration: none; }
-    </style>
-</head>
-<body>
-
-    <h1>{{ profile.name }}</h1>
-    <div class="contact">
-        <p>{{ profile.location }} | {{ profile.email }} | {{ profile.phone_number }}</p>
-        <p><a href="{{ profile.linkedin }}">{{ profile.linkedin }}</a> | <a href="{{ profile.github }}">{{ profile.github }}</a></p>
-    </div>
-
-    <h2>Summary</h2>
-    <p>{{ profile.summary }}</p>
-
-    <h2>Education</h2>
-    {% for edu in educations %}
-        <p class="title">{{ edu.education }}</p>
-        <p>{{ edu.mark }}</p>
-    {% endfor %}
-
-    <h2>Experience</h2>
-    {% for exp in experiences %}
-        <p class="title">{{ exp.experience }}</p>
-        <ul>
-            <li>{{ exp.summary }}</li>
-            <li>{{ exp.description1 }}</li>
-            <li>{{ exp.description2 }}</li>
-        </ul>
-        <p>{{ exp.startdate }} - {{ exp.enddate }}</p>
-    {% endfor %}
-
-    <h2>Certificates</h2>
-    <ul>
-        {% for cert in certificates %}
-            <li>{{ cert.certificate }} ({{ cert.startdate }} - {{ cert.enddate }})</li>
-        {% endfor %}
-    </ul>
-
-    <h2>Projects</h2>
-    {% for proj in projects %}
-        <p class="title">{{ proj.project }} - <a href="{{ proj.github }}">{{ proj.github }}</a></p>
-        <ul>
-            <li>{{ proj.description1 }}</li>
-            <li>{{ proj.description2 }}</li>
-        </ul>
-        <p>{{ proj.startdate }} - {{ proj.enddate }}</p>
-    {% endfor %}
-
-    <h2>Skills</h2>
-    <p><strong>Languages:</strong> {{ skills.languages }}</p>
-    <p><strong>Frameworks:</strong> {{ skills.framework }}</p>
-    <p><strong>Tools:</strong> {{ skills.tools }}</p>
-    <p><strong>Soft Skills:</strong> {{ skills.softskills }}</p>
-    <p><strong>Linguistics:</strong> {{ skills.linguistic }}</p>
-
-</body>
-</html> {% endcomment %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,73 +39,113 @@
       color: #1a0dab;
       text-decoration: none;
     }
+    .flex-between {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.date-right {
+  margin-left: auto;
+  color: #555;
+}
+
   </style>
 </head>
 <body>
 
   <h1>{{profile.name}}</h1>
   <div class="center">
-    <p>Kozhikode, Kerala | <a href="mailto:midhunnk2021@gmail.com">{{profile.email}}</a> | <a href="tel:+917994863515">7994863515</a></p>
+    <p>{{profile.location}} | <a href="mailto:midhunnk2021@gmail.com">{{profile.email}}</a> | <a href="tel:+917994863515">{{profile.phone_number}}</a></p>
     <p>
-      <a href="https://www.linkedin.com/in/midhun-nk">linkedin.com/in/midhun-nk</a> |
-      <a href="https://github.com/Midhun-Nk">github.com/Midhun-Nk</a>
+      <a href="https://www.linkedin.com/in/midhun-nk">{{profile.linkedin}}</a> |
+      <a href="https://github.com/Midhun-Nk">{{profile.github}}</a>
     </p>
   </div>
 
   <h2>Summary</h2>
   {% for exp in experiences %}
-  <p>{{exp.summary}}</p>
-{% endfor %}
-  <h2>Education</h2>
-    {% for edu in educations %}
-  <p><strong>{{edu.first_education}}</strong>, B.Tech in Computer Science<br>
-  {{edu.first_edu_date}} – {{edu.first_edu_date}}<br>
-  • CGPA {{edu.first_mark}}/10</p>
+  <p>{{exp.first_summary}}.{{exp.second_summary}}</p>
+{% endfor %}{% for edu in educations %}
+  <div class="flex-between">
+    <p><strong>{{edu.first_college}}</strong>, {{edu.first_degree}}</p>
+    <p class="date-right">{{edu.first_edu_startdate}} – {{edu.first_edu_enddate}}</p>
+  </div>
+  <p>• CGPA {{edu.first_mark}}/10</p>
 
-  <p><strong>{{edu.second_education}}</strong>, Higher Secondary in Computer Science<br>
-  {{edu.second_edu_date}} – {{edu.second_edu_date}}<br>
-  • Perc: {{edu.second_mark}}%</p>
+  <div class="flex-between">
+    <p><strong>{{edu.second_college}}</strong>, {{edu.second_degree}}</p>
+    <p class="date-right">{{edu.second_edu_startdate}} – {{edu.second_edu_enddate}}</p>
+  </div>
+  <p>• Perc: {{edu.second_mark}}%</p>
 {% endfor %}
-  <h2>Experience</h2>
-   {% for exp in experiences %}
-  <p><strong>{{exp.first_experience}}</strong>, Self-employed (2022 – 2023)</p>
+
+
+  <h2>Experience</h2>{% for exp in experiences %}
+  <div class="flex-between">
+    <p><strong>{{exp.first_exp_title}}</strong>, {{exp.first_exp_place}}</p>
+    <p class="date-right">{{exp.first_exp_startdate}} – {{exp.first_exp_enddate}}</p>
+  </div>
   <ul>
     <li>{{exp.first_description1}}</li>
     <li>{{exp.first_description2}}</li>
-    <li>Collaborated with clients to translate requirements into functional software solutions.</li>
   </ul>
 
-  <p><strong>{{exp.second_experience}}</strong>, Rivertech (February 2023)</p>
+  <div class="flex-between">
+    <p><strong>{{exp.second_exp_title}}</strong>, {{exp.second_exp_place}}</p>
+    <p class="date-right">{{exp.second_exp_startdate}} – {{exp.second_exp_enddate}}</p>
+  </div>
   <ul>
     <li>{{exp.second_description1}}</li>
-     <li>{{exp.second_description2}}</li>
+    <li>{{exp.second_description2}}</li>
   </ul>
 {% endfor %}
+
   <h2>Certificates</h2>
      {% for cert in certificates %}
   <ul>
-    <li><a href="https://drive.google.com/file/d/1GZBaAqVS44WCNHwBnZ8_zmXKFBQnpdTU/view?usp=drivesdk">{{cert.first_certificate}}</a> – May 2025</li>
-    <li><a href="https://drive.google.com/file/d/150Bb8HjWjGq8YZJB1IHcFRb31sFkua88/view?usp=drivesdk">IEEE Hackathon, IEEE SPS Kerala Chapter</a> – February 2025</li>
-    <li><a href="https://drive.google.com/file/d/14yNmvKpcKwEE4aABJ17RshNlNrk3ylqG/view?usp=drivesdk">Responsive Web Design</a> – December 2024</li>
-    <li><a href="https://drive.google.com/file/d/14xIHmHrX6pvqJhcLe5tQgTUJXNM1Wu5t/view?usp=drivesdk">Internship in Python Development, Rivertech</a> – February 2023</li>
+    <div class="flex-between">
+      <li><a href="https://drive.google.com/file/d/...">{{cert.first_certificate}}</a></li>
+      <span class="date-right">{{cert.first_cert_date}}</span>
+    </div>
+    <div class="flex-between">
+      <li><a href="https://drive.google.com/file/d/...">{{cert.second_certificate}}</a></li>
+      <span class="date-right">{{cert.second_cert_date}}</span>
+    </div>
+    <div class="flex-between">
+      <li><a href="https://drive.google.com/file/d/...">{{cert.third_certificate}}</a></li>
+      <span class="date-right">{{cert.third_cert_date}}</span>
+    </div>
+    <div class="flex-between">
+      <li><a href="https://drive.google.com/file/d/...">{{cert.fourth_certificate}}</a></li>
+      <span class="date-right">{{cert.fourth_cert_date}}</span>
+    </div>
   </ul>
 {% endfor %}
+
   <h2>Projects</h2>
-  <p><strong><a href="https://github.com/MiKeStudi0/Disaster-Management">DRM Application</a></strong><br>
-  • Developed a disaster management app with real-time alerts, SOS requests, live tracking, and resource management for effective disaster relief activities.<br>
-  • Tools Used: Dart-Flutter, Firebase, REST APIs, JavaScript</p>
+{% for pro in projects %}
 
-  <p><strong><a href="https://github.com/MiKeStudi0/EduMike">Eduwise Learning Application</a></strong><br>
-  • Developed EduWise, a comprehensive education management app enabling seamless access to notes, syllabus management, bookmarking, and real-time messaging for enhanced student learning and organization.<br>
-  • Tools Used: Dart-Flutter, Firebase, REST APIs, JavaScript</p>
+  <p><strong><a href="{{pro.first_github}}">{{pro.first_project}}</a></strong><br>
+  • {{pro.first_description1}}<br>
+  • {{pro.first_description2}}<br>
+  • Tools Used: {{pro.first_techstack}}</p>
 
+  <p><strong><a href="{{pro.second_github}}">{{pro.second_project}}</a></strong><br>
+  • {{pro.second_description1}}<br>
+  • {{pro.second_description2}}<br>
+  • Tools Used: Dart-{{pro.second_techstack}}</p>
+{% endfor %}
   <h2>Skills</h2>
-  <ul>
-    <li><strong>Languages:</strong> Dart, Flutter Framework, JavaScript, Python, HTML, CSS, C, MySQL</li>
-    <li><strong>Tools and Platforms:</strong> Git, VS Code, Firebase, Android Studio, Figma</li>
-    <li><strong>Soft Skills:</strong> Communication, Teamwork, Leadership, Problem-solving</li>
-    <li><strong>Linguistics:</strong> Malayalam, English, Hindi</li>
-  </ul>
+  {% for skill in skills %}
 
+  <ul>
+    <li><strong>Languages & Framework:</strong> {{skill.languages}}{{skill.framework}}</li>
+   
+    <li><strong>Tools and Platforms:</strong> {{skill.tools}}</li>
+      <li><strong>Linguistics:</strong> {{skill.linguistic}}</li>
+    <li><strong>Soft Skills:</strong> {{skill.soft_skill}}</li>
+  
+  </ul>
+{% endfor %}
 </body>
 </html>
